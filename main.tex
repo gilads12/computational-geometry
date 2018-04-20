@@ -7,8 +7,24 @@
 \usepackage[normalem]{ulem}
 \usepackage[top=2cm,bottom=2cm,left=2.5cm,right=2cm]{geometry}
 \usepackage[fleqn]{amsmath}
+\usepackage{amsthm}
+
+ 
+\usepackage{indentfirst}
 \usepackage{mathtools}
 \usepackage{amsfonts, amsthm, amssymb, amsmath, cancel, enumitem, comment}
+\usepackage{siunitx}
+
+\usepackage{amsmath,amssymb,amsthm,mathrsfs,amsfonts,dsfont}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{property}[theorem]{Property}
+
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
 \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
 \newenvironment{spmatrix}[1]
@@ -85,22 +101,120 @@
   \fi
 }
 
-\newtheorem{theorem}{Theorem}
-\newtheorem{claim}{Claim}
-\newtheorem{lemma}{Lemma}
-\newtheorem{definition}{Definition}
-\newtheorem{proposition}{Proposition}
-\newtheorem{prob}{Problem}
 
 \title{ גיאומטריה חישובית }
 \begin{document}
 \maketitle
+
+
+\section{ פעולות אטומיות}
+אוסף של פעולות שניתן לבצע במספר קבוע של מהלכים
+
+\subsection{נקודות בשתי צדי ישר}
+\noindent \uline{קלט:} שתי נקודות $p,q$ וישר $L$
+\newline \uline{ שאלה:} האם $p,q$ נמצאים באותו צד של הישר $L$
+\newline \uline{פתרון:} נציב את הנקודות על משוואת הישר ונבדוק האם יש להן את אותו הסימון
+
+\subsection{שיוך נקודה לקטע}
+\noindent \uline{קלט:} קטע $pq$ ונקודה $w$
+\newline \uline{ שאלה:} האם הנקודה $w$ נמצאת על הקטע
+\newline \uline{פתרון:} 1. נבדוק האם הנקודה על הישר 2. נבדוק האם ערך ה$X$ של $w$ נמצא בין ערכי ה$X$ של $p$ ושל $q$ )אם הקטע אנכי לצירים נבדוק על $Y$(
+
+\subsection{זיהוי כיוון של ווקטורים}
+\noindent \uline{קלט:} $p_0p_1$ , $p_0p_2$ וקטורים
+\newline \uline{שאלה:} האם $p_0p_1$ בכיוון השעון כלפי $p_0p_2$ )שאלה זהה האם הזויות בינהם מתחת ל$180$(
+\newline \uline{פתרון:} ננרמל את הווקטרים לראשית הצירים ונחשב את המכפלה הקרטזית אם קיבלנו מספר חיובי הזויות מתחת ל$180$
+
+\subsection{זיהוי כיוון פנייה}
+\noindent \uline{קלט:} $p_0p_1$ , $p_1p_2$ וקטורים
+\newline \uline{שאלה:} האם $p_1p_2$ פונה ימינה מ $p_0p_1$
+\newline \uline{פתרון:} נהפוך את הווקטר $p_0p_1$ ונקבל את אותה השאלה כמו סעיף קודם
+
+\subsection{נקודות בציר ישר}
+\noindent \uline{קלט:} $p_1$ $p_2$ נקודות $l_3l_4$ ישר
+\newline \uline{שאלה:} האם הנקודות $p_1$ $p_2$ נמצאות באותו צד של הישר 
+\newline \uline{פתרון א':} שימוש בפעולה אטומית 1.1
+\newline \uline{פתרון ב':} שימוש בפעולה אטומית $1.4$ נבדוק את הכיוון של הווקטור $l_4p_2$ ביחס ליישר ואת הכיוון של הווקטור $l_4p_1$ ביחס ליישר, אם זה אותו כיוון אז הם באותו צד
+
+\subsection{חיתוך קטעים}
+\noindent \uline{קלט:} $p_1p2$ $p_3p_4$ שני קטעים
+\newline \uline{שאלה:} האם הקטעים נחתכים
+\newline \uline{פתרון:} ניקח את הווקטור  $p_1p_2$ ונבנה את משוואת הישר שלו ונבדוק מה הצד של שני הנקודות $p_3$ ו$p_4$ נעשה את אותו הדבר עם הישר $p_3p_4$ )צריך גם וגם( 
+\newline \uline{מקרה קצה:} אם הישרים נמצאים על אותו הישר 
+
+\subsection{זויות כהה בין ווקטורים}
+\noindent \uline{קלט:} $p_0p_1$ $p_0p_2$ שני ווקטורים
+\newline \uline{שאלה:} האם הזווית בין הווקטרים כהה
+\newline \uline{פתרון:} ננרמל את הווקטורים לראשית הצירים ונכפיל אותם מכפלה פנימית אם התוצאה חיובית הזוויות כהה
+
+\subsection{האם לשני קטעים יש נקודות עם קורדינטת $X$ משותפת )כאשר ערך ה$Y$ לא משנה(}
+\noindent \uline{קלט:} שני קטעים
+\newline \uline{שאלה:} האם יש להם קורדינטת $X$ משותפת 
+\newline \uline{פתרון:}
+
+\subsection{מציאת נקודה פנימית במשולש}
+\noindent \uline{קלט:} $\triangle p_1p_2p_3$ משולש
+\newline \uline{שאלה:} מצא נקודה הנמצאת בתוך המשולש )לא על השפה(
+\newline \uline{פתרון:}  קורדינטת $X$ תהיה $(p_{1_x}+p_{2_x}+2p_{3_x})/4$ קורדינטת $Y$ תהיה $(p_{1_y}+p_{2_y}+2p_{3_y})/4$
+
+\subsection{האם נקודה בתוך משולש}
+\noindent \uline{קלט:} $\triangle p_1p_2p_3$ משולש $q$ נקודה
+\newline \uline{שאלה:} האם הנקודה $q$ נמצאת בתוך המשולש )או על השפה(
+\newline \uline{פתרון:} נמצא נקודה במשולש $w$ )באמצעות הסעיף הקודם( נבדוק האם הנקודה $q$ נמצא באותו צד כמו הנקודה $w$ כלפי כל אחד מהישרים של המשולש 
+
 \section{ סגור קמור}
 ניתן לחשוב על הקמור כעל גומייה שנמתחה כך שתקיף את כל הנקודות/ המסמרים, ולאחר מכן שוחררה.\\
 \selectlanguage{english}
 \includegraphics[scale=0.7]{z1.png}
 \selectlanguage{hebrew}
+
+\uline{קבוצה קמורה:} הקבוצה $S$ תקרא קבוצה קמורה אם לכל $p,q\in S$ הקטע שמחבר בין הנקודות $pq\in S$
+\newline\newline\textbf{למה} חיתוך שני קבוצות קמורות נותן קבוצה קמורה
+) נוכיח בשלילה שקיים $q,p\in S$ כך שהקטע $qp$ לא נמצא בחיתוך $S\cap S'$ \textbf{אבל} לפי ההגדרה $pq \in S$ וגם $pq \in S'$ (
+
+\subsection{הגדרות}
+\uline{מצולע}
+\begin{enumerate}
+\item $P_v$ קדקודי המצולע
+\item $P_e$ צלעות המצולע
+\item $P_a$ שטח המצולע
+\end{enumerate}
+\uline{עקום} קו מפותל
+\newline\uline{עקום סגור} סדרה של קטעים סגורים
+\newline\uline{עקום פשוט} עקום כך שאף שתי צלעות לא נחתכות
+\uline{מצולע קמור}
+\begin{itemize}
+\item מצולע פשוט וסגור שהשטח $P_a$ חוסם קבוצה קמורה
+\item מצולע פשוט וסגור כל הזויות הפנימיות שלו קטנות מ$\ang{180}$
+\end{itemize}
+
+\uline{ סגור קמור )סימון $CH$(}
+\begin{itemize}
+\item בהינתן קבוצת קדקודים $S$ נגדיר את $CH(S)$ להיות הקבוצה הקטנה ביותר המכילה את $S$
+\item $CH(S)$ יהיה חיתוך של כל הקבוצות המכילות את $S$
+\end{itemize}
+
+
 \subsection{אלגוריתמים לחישוב סגור קמור}
+בהינתן קבוצת נקודות $S$ נדרש אלגוריתם שימצא לנו את $CH(S)$
+\subsubsection{הנחות}
+\begin{enumerate}
+\item $p$ לא יהיה קדקוד ב$P_v$ \textbf{אם ורק אם}
+\begin{itemize}
+\item קיים $p_i,p_j \in S$ כך ש$p$ נמצא על הישר $p_ip_j$
+\item )או( קיים $p_i,p_j,p_k \in S$ כך ש$p$ נמצא במשולש $\triangle p_ip_jp_k$
+\end{itemize}
+\item $pq$ תהיה צלע ב $P$ אם ורק אם  $\forall w \in S$ הנקודה $w$ נמצאת על אותו צד של הישר $pq$ 
+\end{enumerate}
+
+\subsubsection{אלגוריתמים נאיבים}
+\begin{enumerate}
+\item נעבור על כל הנקודות ב$S$ ונבדוק האם הן שייכות ל$P_v$ $\leftarrow$ זמן ריצה $\mathcal{O}(n^4)$ \textbf{האלגוריתם לא מחזיר את סדר הצלעות}
+\item נעבור על כל זוגות הנקודות ב$S$ ונבדוק האם הן צלע $\leftarrow$ זמן ריצה $\mathcal{O}(n^3)$
+\item ניקח את הנקודה $p_0$ הכי שמאלית עם $X,Y$ מינימלי )בהכרח קדקוד( נמצא ל$p_0$ את הצלע שלה $p_1$ ול$p_1$ נמצא את הצלע שלה $p_2$ עד שנגיע ל$p_h$ $\leftarrow$ זמן ריצה $\mathcal{O}(n^2*h)$ 
+\end{enumerate}
+
+
 \subsubsection{אלגוריתם סריקת גרהם}
 \begin{itemize}
 \item מיין את הנקודות לפי קורדינטות  $x$ כך ש: $x_1 < x_2 < \cdots < x_n$
@@ -122,6 +236,13 @@
 \end{itemize}
 \uline{טענת נכונות:} לאחר איטרציה $i$, תכולת המחסנית מהווה את $\hat{CH}(S_i)$\\
 \uline{סיבוכיות:} $\mathcal{O}(n \log(n))$ )המיון. הערה: כל השאר $\mathcal{O}(n)$(\\
+\paragraph{הערות }
+\begin{enumerate}
+\item ייתכן והקמור העליון לא ייפגש עם הקמור התחתון )במידה ולשתי הקצוות אותו ערך של $X$ במידה וכן נחבר בין הנקודות(
+\item ניתן לבצע את האלגוריתם בפעם אחת ללא קמור עליון ותחתון על ידי מיון פולארי של הנקודות ולרוץ מנקודה אחת עם כיוון השעון
+\end{enumerate}
+
+
 \paragraph{בעיית הגלריה }
 למצוא מספר מינימלי של נקודות מהן אפשר לראות את כל המצולע.\\
 במצולע קמור מספיקה נקודה אחת.\\
@@ -135,7 +256,11 @@
 \includegraphics[scale=0.3]{z2.png}
 \selectlanguage{hebrew}\\
 במצולע דמוי כוכב אפשר לחשב את הסגור הקמור בלי המיון.\\
-\textbf{תרגיל:} נניח שאוסף הנקודות $S$ נבחר באקראי בריבוע היחידה. מה ניתן לומר על תוחלת הסיבוכיות של אלגוריתם גרהם?
+
+
+\noindent\textbf{תרגיל:} נניח שאוסף הנקודות $S$ נבחר באקראי בריבוע היחידה. מה ניתן לומר על תוחלת הסיבוכיות של אלגוריתם גרהם?
+
+
 \subsubsection{אלגוריתם עטיפת המתנות}
 \begin{enumerate}
 \item מצא את הנקודה הנמוכה ביותר ב-$S$, $p_0$ $(\mathcal{O}(n))$
@@ -158,9 +283,11 @@ $C_{UR} \subseteq B$\\
 $p_i=(x_i, y_i)$ לא שלטת אם"ם $y_i$ היא המקסימלית מבין $p_1, \cdots, p_i$ )כלומר, $y_i>y_1, y_2, \cdots, y_{i-1}$(\\
 $\Pr(y_i>y_1, y_2, \cdots, y_{i-1})= \frac{1}{i}$\\
 $E(|B|)= \sum_{i=1}^n \frac{1}{i}= \mathcal{O}(n)$\\
-\textbf{תרגיל:} בהינתן אוסף $S$ של $n$ נקודות, מצא את כל הנקודות הלא נשלטות ב-$S$. )קל: $\mathcal{O}(n^2)$. למצוא יותר יעיל: $\mathcal{O}(n \log(n))$(\\
+\textbf{תרגיל 1:} בהינתן אוסף $S$ של $n$ נקודות, מצא את כל הנקודות הלא נשלטות ב-$S$. )קל: $\mathcal{O}(n^2)$. למצוא יותר יעיל: $\mathcal{O}(n \log(n))$(\\
+\noindent\textbf{תרגיל 2:} קלט אוסף נקודות $S$ בגודל $n$ מצא אלגוריתם שמחזיר את אוסף הנקודות הלא נשלטות בזמן $O(n\log(n))$
+
 \subsection{חסם תחתון}
-\uline{משפט:} חישוב הסגור הקמור של $n$ נקודות במישור )מוחזר על פי סדר הקודקודים על הסגור( דורש $\Omega(n \log(n))$ פעולות במקרה הגרוע במודל הפעולות האלגבריות.\\
+\noindent\uline{משפט:} חישוב הסגור הקמור של $n$ נקודות במישור )מוחזר על פי סדר הקודקודים על הסגור( דורש $\Omega(n \log(n))$ פעולות במקרה הגרוע במודל הפעולות האלגבריות.\\
 \uline{הוכחה:} נסתמך על כך שמיון דורש $\Omega(n \log(n))$ פעולות במקרה הגרוע.\\
 נניח שיש לנו פרוצדורה $A$ לחישוב סגור קמור, נראה אלגוריתם מיון בסיבוכיות $T_A+\mathcal{O}(n)$\\
 \textbf{אלגוריתם למיון:}
@@ -173,5 +300,59 @@ $E(|B|)= \sum_{i=1}^n \frac{1}{i}= \mathcal{O}(n)$\\
 \selectlanguage{hebrew}\\
 \item מתוך $P$ נחלץ את הסדרה הממוינת.
 \end{enumerate}
+
+\subsection{אלגוריתם מיזוג קמורים}
+\begin{enumerate}
+\item אם גודל הקבוצה $S$ שווה 3 החזר את $S$
+\item חלק את $S$ לשתי קבוצות זרות בגודל שווה ועבור כל קבוצה תפעיל את האלגוריתם
+\item מזג בין שני הסוגרים הקמורים שהתקבלו
+\end{enumerate}
+
+\paragraph{אלגוריתם עזר "מיזוג קמורים"  $S',S$}
+\begin{enumerate}
+\item נקח את הקמור העליון של $S$ ושל $S'$ ונמזג אותם על ידי האלגוריתם של גרהם )רק שעכשיו שתי הקבוצות ממוינות כבר( כנ"ל לקמור התחתון
+\item אחד בין הקמור התחתון לקמור העליון
+\end{enumerate}
+\noindent\uline{סיבוכיות} $\mathcal{O}(n\log(n))$ )מתאים לעיבוד מקבלי(
+\noindent\textbf{תרגיל:} נניח שאוסף הנקודות $S$ נבחר באקראי בריבוע היחידה. מה ניתן לומר על תוחלת הסיבוכיות של האלגוריתם?
+
+\subsection{אלגוריתם קירקפטריק}
+
+\paragraph{מבנה נתונים היררכי}
+$H_{i+1}$ יכיל כל קדקוד שני מהמצולע $H_i$ כאשר $H_0=CH(S)$ 
+\selectlanguage{english}
+\includegraphics[scale=0.4]{z5.png}
+\selectlanguage{hebrew}\\
+
+\paragraph{שאילתת קיצון}
+\noindent\uline{קלט} $q$ נקודה חיצונית לסגור הקמור וישר $L$ שעובר דרך הנקודה  
+\newline\uline{שאלה} אם נסובב את הישר $L$ על הציר של $q$ באיזו נקודה מ$S$ אני אפגע ראשונה )ניתן לשים לב שכל נקודה פנימית בתוך הסגור לא יכולה להתקבל כפתרון(
+\newline\uline{פתרון} נבנה עבור $CH(S)$ מבנה נתונים היררכי $H$ 
+\begin{enumerate}
+\item עבור $H_k$ נבצע את הפעולה האטומית האם הנקודה נמצאת על הישר
+\item עבור $H_{i-1}$ הנקודה חייבת להיות 
+\begin{itemize}
+\item קדקוד ברמה $H_i$
+\item אחד מהשכנים הצמודים של המצולע $H_i$
+\end{itemize}
+\end{enumerate}
+
+\noindent\textbf{תיאור האלגוריתם )בהנחה וכמות הקדקודים $h$ ידועה מראש( }
+\begin{enumerate}
+\item חלק את הנקודות ל$k=\frac{n}{h}$ קבוצות $\leftarrow$ $\mathcal{O}(n)$
+\item לכל קבוצה חשב את הסגור הקמור ושמור אותה במבנה נתונים היררכי $\leftarrow$ $\mathcal{O}(n\log(h))$
+\item בצע את אלגוריתם עטיפת המתנות באופן הבא
+\begin{itemize}
+\item מצא את הנקודה $p_0$ השמאלית הנמוכה ביותר $\leftarrow$ $\mathcal{O}(n)$
+\item עבור כל קבוצה נבצע על הנקודה $p_0$ את שאילתת הקיצון שלנו )נקבל סך הכל k מועמדים( מבין המועמדים נבחר את האחד עם הזוויות הנמוכה ביותר כלפי $p_0$ )מזכיר את אלגוריתם עטיפת המתנות אך חוסך לנו את המיון( $\leftarrow$ $\mathcal{O}(h*[k+k\log(h)])=\mathcal{O}(n\log(h))$
+\end{itemize}
+\end{enumerate}
+
+\noindent\uline{סיבוכיות}  אם נשערך את $h \in [1,2,4,8,16....,2n]$ עד שנקבל את התוצאה $\mathcal{O}(n\log(h)* \log(h))$ אם נשערך את $h \in [4,16,256,....,2^{2^i}]$ עד שנקבל את התוצאה $\mathcal{O}(n\log(h))$ 
+
+\subsection{סגור קמור אונלין}
+\noindent\uline{הגדרה} בהינתן סגור קמור $S$ ונקודה $p_{n+1}$ הוסף את הנקודה כך ש$CH(S_{n+1})=CH(S \cup p_{n+1})$ 
+
+
 
 \end{document}
